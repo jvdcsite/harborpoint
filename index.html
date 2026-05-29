@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HarborPoint Recruitment | Toronto Boutique Staffing Agency</title>
+  <meta name="description" content="HarborPoint Recruitment — Toronto's boutique staffing agency connecting top employers with exceptional talent. Fast, precise, built for the long term.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1B3A52;
+      --navy-dark: #0f2233;
+      --red:       #C41230;
+      --red-dark:  #a50f28;
+      --white:     #ffffff;
+      --gray-50:   #F8FAFC;
+      --gray-100:  #F1F5F9;
+      --gray-200:  #E2E8F0;
+      --gray-400:  #94A3B8;
+      --gray-600:  #475569;
+      --gray-900:  #0F172A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--gray-200);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img { height: 42px; width: auto; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); background: var(--gray-100); }
+    .nav-cta {
+      color: var(--white) !important;
+      background: var(--red) !important;
+      font-weight: 700 !important;
+      padding: 9px 22px !important;
+    }
+    .nav-cta:hover { background: var(--red-dark) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-geo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 45%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero-geo::before {
+      content: '';
+      position: absolute;
+      right: -120px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 520px solid transparent;
+      border-bottom: 520px solid transparent;
+      border-right: 600px solid var(--red);
+      opacity: 0.08;
+    }
+    .hero-geo::after {
+      content: '';
+      position: absolute;
+      right: 60px;
+      bottom: 80px;
+      width: 0;
+      height: 0;
+      border-top: 80px solid transparent;
+      border-bottom: 80px solid transparent;
+      border-right: 100px solid var(--red);
+      opacity: 0.18;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 24px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid rgba(196,18,48,0.35);
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 36px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 6.5vw, 84px);
+      font-weight: 900;
+      line-height: 1.04;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 28px;
+      letter-spacing: -0.03em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 52px;
+      font-weight: 400;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: var(--red);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 6px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--gray-900);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+    }
+    .stat {
+      flex: 1;
+      padding: 40px 32px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-number {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .stat-number sup { font-size: 20px; color: var(--red); vertical-align: super; }
+    .stat-number sub { font-size: 20px; color: var(--red); }
+    .stat-label {
+      font-size: 12px;
+      color: var(--gray-400);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── DUAL FUNNEL ── */
+    .dual-funnel-wrap {
+      padding: 0 24px 100px;
+    }
+    .dual-funnel {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--gray-200);
+      border-top: none;
+      overflow: hidden;
+    }
+
+    .funnel-card { padding: 72px 60px; }
+    .funnel-card.employers { background: var(--navy); border-right: 2px solid rgba(255,255,255,0.06); }
+    .funnel-card.candidates { background: var(--white); }
+
+    .funnel-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .funnel-label::before {
+      content: '';
+      width: 18px;
+      height: 2px;
+      flex-shrink: 0;
+    }
+    .funnel-card.employers .funnel-label { color: var(--red); }
+    .funnel-card.employers .funnel-label::before { background: var(--red); }
+    .funnel-card.candidates .funnel-label { color: var(--navy); }
+    .funnel-card.candidates .funnel-label::before { background: var(--navy); }
+
+    .funnel-card h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -0.025em;
+    }
+    .funnel-card.employers h2 { color: var(--white); }
+    .funnel-card.candidates h2 { color: var(--navy); }
+
+    .funnel-card > p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .funnel-card.employers > p { color: rgba(255,255,255,0.6); }
+    .funnel-card.candidates > p { color: var(--gray-600); }
+
+    .funnel-features {
+      list-style: none;
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .funnel-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .funnel-features li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .funnel-card.employers .funnel-features li { color: rgba(255,255,255,0.75); }
+    .funnel-card.employers .funnel-features li::before { background: var(--red); }
+    .funnel-card.candidates .funnel-features li { color: var(--gray-600); }
+    .funnel-card.candidates .funnel-features li::before { background: var(--navy); }
+
+    .btn-funnel {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-funnel:hover { transform: translateY(-1px); }
+    .btn-funnel.red { background: var(--red); }
+    .btn-funnel.red:hover { background: var(--red-dark); }
+    .btn-funnel.navy { background: var(--navy); }
+    .btn-funnel.navy:hover { background: var(--navy-dark); }
+    .btn-funnel svg { transition: transform 0.2s; }
+    .btn-funnel:hover svg { transform: translateX(3px); }
+
+    /* ── WHY ── */
+    .why {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 100px 24px;
+    }
+    .why-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      width: 18px;
+      height: 2px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .why h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--navy);
+      max-width: 520px;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 72px;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    .why-item { border-top: 2px solid var(--gray-200); padding-top: 36px; }
+    .why-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-400);
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .why-item h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .why-item p {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      padding: 100px 24px;
+    }
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+    }
+    .contact-left h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 48px;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 28px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--gray-100);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--gray-200);
+    }
+    .contact-text strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .contact-text span,
+    .contact-text a {
+      font-size: 15px;
+      color: var(--gray-900);
+      text-decoration: none;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .contact-text a:hover { color: var(--navy); text-decoration: underline; }
+
+    /* form */
+    .contact-form {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 48px;
+    }
+    .contact-form h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .contact-form > p {
+      font-size: 14px;
+      color: var(--gray-600);
+      margin-bottom: 36px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--gray-900);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--gray-400); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(27,58,82,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+      letter-spacing: 0.01em;
+    }
+    .btn-submit:hover { background: var(--navy-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--gray-900);
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo img { height: 34px; width: auto; display: block; opacity: 0.9; }
+    .footer-mid {
+      font-size: 13px;
+      color: var(--gray-400);
+      text-align: center;
+    }
+    .footer-mid a { color: var(--gray-400); text-decoration: none; }
+    .footer-mid a:hover { color: var(--white); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--gray-400);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav-text-links { display: none !important; }
+      .dual-funnel { grid-template-columns: 1fr; }
+      .funnel-card { padding: 52px 36px; }
+      .funnel-card.employers { border-right: none; border-bottom: 2px solid rgba(255,255,255,0.06); }
+      .why-grid { grid-template-columns: 1fr; gap: 36px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 56px; }
+      .form-row { grid-template-columns: 1fr; }
+      .stats-inner { flex-wrap: wrap; }
+      .stat { flex: 0 0 50%; border-right: none; padding: 32px 20px; }
+      .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-mid { text-align: left; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 16px; }
+      .funnel-card { padding: 44px 28px; }
+      .contact-form { padding: 36px 28px; }
+      .stat { flex: 0 0 100%; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="assets/logo-color.png" alt="HarborPoint Recruitment">
+    </a>
+    <ul class="nav-links">
+      <span class="nav-text-links" style="display:contents">
+        <li><a href="#employers">For Employers</a></li>
+        <li><a href="#candidates">For Candidates</a></li>
+      </span>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-geo"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Toronto Boutique Staffing</div>
+    <h1>The Right Hire,<br>Not Just <em>Any</em> Hire.</h1>
+    <p>HarborPoint Recruitment connects Toronto's top employers with exceptional talent — fast, precise, and built for the long term.</p>
+    <div class="hero-ctas">
+      <a href="#employers" class="btn-primary">
+        Hire Talent
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#candidates" class="btn-outline">Find a Job</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-number">48<sub>h</sub></div>
+      <div class="stat-label">Avg. Match Time</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">94<sup>%</sup></div>
+      <div class="stat-label">Retention Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">1<sub>:1</sub></div>
+      <div class="stat-label">Dedicated Recruiter</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">GTA</div>
+      <div class="stat-label">Toronto-Rooted</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DUAL FUNNEL ── -->
+<div class="dual-funnel-wrap">
+  <div class="dual-funnel">
+
+    <div class="funnel-card employers" id="employers">
+      <div class="funnel-label">For Employers</div>
+      <h2>Build Your Best Team, Faster.</h2>
+      <p>We source, screen, and deliver candidates who match your culture and requirements — not just keyword matches from a database.</p>
+      <ul class="funnel-features">
+        <li>Dedicated recruiter for every search</li>
+        <li>Shortlist delivered in 48 hours or less</li>
+        <li>Permanent &amp; contract placements</li>
+        <li>Retained and contingency options available</li>
+      </ul>
+      <a href="#contact" class="btn-funnel red">
+        Start Hiring
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="funnel-card candidates" id="candidates">
+      <div class="funnel-label">For Candidates</div>
+      <h2>Your Next Role Starts Here.</h2>
+      <p>Work with a recruiter who actually listens. We represent you — not just your resume — and match you to roles where you'll thrive.</p>
+      <ul class="funnel-features">
+        <li>Access to unadvertised Toronto &amp; GTA roles</li>
+        <li>Honest feedback and career guidance</li>
+        <li>Full confidentiality, always</li>
+        <li>No cost to candidates — ever</li>
+      </ul>
+      <a href="mailto:paulynne@harborpointrecruitment.ca?subject=Resume%20Submission%20%E2%80%94%20HarborPoint%20Recruitment&body=Hi%20Paulynne%2C%0A%0APlease%20find%20my%20resume%20attached.%0A%0AName%3A%20%0ADesired%20role%20or%20industry%3A%20%0A%0ALooking%20forward%20to%20connecting." class="btn-funnel navy">
+        Send Your Resume
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── WHY HARBORPOINT ── -->
+<section class="why">
+  <div class="why-inner">
+    <div class="section-label">Why HarborPoint</div>
+    <h2>Boutique Attention.<br>Enterprise Results.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-number">01</div>
+        <h3>Precision Over Volume</h3>
+        <p>We don't flood your inbox with resumes. Every candidate we present has been personally vetted against your specific role, team, and culture.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">02</div>
+        <h3>Toronto-Rooted Network</h3>
+        <p>Deep local market knowledge across finance, technology, operations, and professional services throughout the GTA and beyond.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">03</div>
+        <h3>One Recruiter. Full Accountability.</h3>
+        <p>You work with one dedicated point of contact from kickoff to placement. No handoffs, no dropped context, no gaps in communication.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+
+    <div class="contact-left">
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's Find<br>the Right Fit.</h2>
+      <div class="contact-details">
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B3A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-text">
+            <strong>Office</strong>
+            <a href="https://maps.google.com/?q=2482+Yonge+Street+Toronto+ON" target="_blank" rel="noopener">2482 Yonge Street, Suite 1024<br>Toronto, ON, Canada</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B3A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.18 2 2 0 0 1 3.9 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-text">
+            <strong>Phone</strong>
+            <a href="tel:+16472311754">(647) 231-1754</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B3A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-text">
+            <strong>Email</strong>
+            <a href="mailto:paulynne@harborpointrecruitment.ca">paulynne@harborpointrecruitment.ca</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B3A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="contact-text">
+            <strong>Hours</strong>
+            <span>Monday – Friday &nbsp;·&nbsp; 9:00 am – 5:00 pm</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send a Message</h3>
+      <p>We respond within one business day.</p>
+      <form action="mailto:paulynne@harborpointrecruitment.ca" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" name="phone" placeholder="(416) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>I am a&hellip;</label>
+          <select name="type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="employer">Employer looking to hire</option>
+            <option value="candidate">Candidate looking for work</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us what you're looking for…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message &rarr;</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="assets/logo-white.png" alt="HarborPoint Recruitment">
+    </div>
+    <p class="footer-mid">
+      &copy; 2026 HarborPoint Recruitment &nbsp;·&nbsp; Toronto, ON &nbsp;·&nbsp;
+      <a href="tel:+16472311754">(647) 231-1754</a>
+    </p>
+    <ul class="footer-links">
+      <li><a href="mailto:paulynne@harborpointrecruitment.ca">Email Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
